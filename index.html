@@ -1,0 +1,398 @@
+<!DOCTYPE html>
+<html lang="id" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bams Properti | Teman Diskusi Hunian Anda</title>
+    
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    
+    <!-- Fonts: Montserrat (Modern/Geo) & Lato (Reading) -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Lato:wght@300;400;700&family=Montserrat:wght@400;600;700;800&display=swap" rel="stylesheet">
+    
+    <!-- Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+    <!-- Custom Config -->
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        'prop-navy': '#1E293B',   /* Slate 800 - Lebih soft dari Navy murni */
+                        'prop-gold': '#C5A059',   /* Gold yang lebih matte/kalem */
+                        'prop-light': '#F8FAFC',
+                        'prop-grey': '#64748B'
+                    },
+                    fontFamily: {
+                        heading: ['"Montserrat"', 'sans-serif'],
+                        body: ['"Lato"', 'sans-serif'],
+                    }
+                }
+            }
+        }
+    </script>
+
+    <style>
+        .hero-gradient {
+            background: linear-gradient(rgba(30, 41, 59, 0.85), rgba(30, 41, 59, 0.7)), url('https://images.unsplash.com/photo-1564013799919-ab600027ffc6?q=80&w=2070&auto=format&fit=crop');
+            background-size: cover;
+            background-position: center;
+            background-attachment: fixed; /* Parallax effect */
+        }
+
+        /* Mobile specific adjustments usually handled by Tailwind utility classes, 
+           but ensuring touch targets are big enough */
+        button, a {
+            touch-action: manipulation;
+        }
+
+        .card-hover {
+            transition: all 0.4s ease;
+        }
+        .card-hover:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 20px -5px rgba(0, 0, 0, 0.1);
+        }
+    </style>
+</head>
+<body class="bg-prop-light font-body text-slate-800 antialiased selection:bg-prop-navy selection:text-prop-gold">
+
+    <!-- Navbar -->
+    <nav id="navbar" class="fixed w-full z-50 transition-all duration-300 py-4 px-6 bg-white/95 backdrop-blur-md shadow-sm border-b border-gray-100">
+        <div class="container mx-auto flex justify-between items-center">
+            <!-- Logo -->
+            <a href="#" class="flex items-center gap-2 group z-50 relative">
+                <i class="fas fa-home text-2xl text-prop-navy group-hover:text-prop-gold transition"></i>
+                <div class="leading-tight">
+                    <span class="block font-heading font-bold text-prop-navy text-lg tracking-wide uppercase">Bams</span>
+                    <span class="block text-[10px] text-prop-grey tracking-widest uppercase">Property Consultant</span>
+                </div>
+            </a>
+            
+            <!-- Desktop Menu -->
+            <div class="hidden md:flex space-x-8 text-sm font-semibold text-slate-600 uppercase tracking-wider">
+                <a href="#home" class="hover:text-prop-gold transition">Home</a>
+                <a href="#about" class="hover:text-prop-gold transition">Kenalan Yuk</a>
+                <a href="#projects" class="hover:text-prop-gold transition">Pilihan Area</a>
+                <a href="#testi" class="hover:text-prop-gold transition">Cerita Mereka</a>
+            </div>
+
+            <!-- Desktop CTA -->
+            <a href="https://wa.me/6281939892449?text=Halo%20Mas%20Bams%2C%20boleh%20minta%20waktu%20diskusi%20sebentar%20soal%20properti%3F" target="_blank" class="hidden md:inline-block px-6 py-2 border border-prop-navy text-prop-navy hover:bg-prop-navy hover:text-white transition duration-300 text-sm font-bold uppercase tracking-wider rounded-sm">
+                <i class="fab fa-whatsapp mr-2"></i> Chat Mas Bams
+            </a>
+            
+             <!-- Mobile Menu Button -->
+             <button id="mobile-menu-btn" class="md:hidden text-2xl text-prop-navy focus:outline-none z-50 relative">
+                <i class="fas fa-bars"></i>
+            </button>
+        </div>
+        
+        <!-- Mobile Menu Overlay -->
+        <div id="mobile-menu" class="hidden fixed inset-0 bg-white z-40 flex flex-col justify-center items-center space-y-8 md:hidden transition-all duration-300">
+            <a href="#home" class="mobile-link text-xl font-heading font-bold text-prop-navy hover:text-prop-gold">Home</a>
+            <a href="#about" class="mobile-link text-xl font-heading font-bold text-prop-navy hover:text-prop-gold">Kenalan Yuk</a>
+            <a href="#projects" class="mobile-link text-xl font-heading font-bold text-prop-navy hover:text-prop-gold">Pilihan Area</a>
+            <a href="#testi" class="mobile-link text-xl font-heading font-bold text-prop-navy hover:text-prop-gold">Cerita Mereka</a>
+            
+            <a href="https://wa.me/6281939892449?text=Halo%20Mas%20Bams%2C%20boleh%20minta%20waktu%20diskusi%20sebentar%20soal%20properti%3F" class="px-8 py-3 bg-prop-navy text-white font-bold rounded-full shadow-lg">
+                <i class="fab fa-whatsapp mr-2"></i> Chat Mas Bams
+            </a>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section id="home" class="hero-gradient min-h-screen flex items-center justify-center text-center px-6 relative pt-20">
+        <div class="max-w-4xl mx-auto text-white relative z-10 animate-fade-in-up">
+            
+            <h1 class="text-4xl md:text-6xl font-heading font-bold mb-6 leading-tight">
+                Temukan Aset Terbaik di <br> 
+                <span class="text-transparent bg-clip-text bg-gradient-to-r from-prop-gold to-yellow-200">Jabodetabek & Jawa Timur</span>
+            </h1>
+            
+            <!-- Subtitle -->
+            <p class="text-gray-200 text-lg mb-10 font-light max-w-2xl mx-auto leading-relaxed">
+                Membeli properti bukan sekadar soal bangunan, tapi soal masa depan keluarga. Mari kita cari opsi yang paling pas buat Anda, tanpa buru-buru.
+            </p>
+            
+            <div class="flex flex-col md:flex-row gap-4 justify-center w-full md:w-auto">
+                <a href="#projects" class="px-8 py-4 bg-prop-gold text-prop-navy font-bold uppercase tracking-widest hover:bg-white transition duration-300 shadow-lg shadow-yellow-500/20 rounded w-full md:w-auto">
+                    Lihat Pilihan Project
+                </a>
+                <a href="https://wa.me/6281939892449?text=Halo%20Mas%20Bams%2C%20saya%20mau%20tanya-tanya%20dulu%20soal%20properti%2C%20boleh%3F" target="_blank" class="px-8 py-4 border border-white text-white font-bold uppercase tracking-widest hover:bg-white hover:text-prop-navy transition duration-300 rounded w-full md:w-auto">
+                    Tanya-Tanya Dulu
+                </a>
+            </div>
+        </div>
+        
+        <!-- Scroll Indicator -->
+        <div class="absolute bottom-8 left-1/2 -translate-x-1/2 text-white/50 animate-bounce hidden md:block">
+            <i class="fas fa-chevron-down"></i>
+        </div>
+    </section>
+
+    <!-- Personal Branding (About Bams) -->
+    <section id="about" class="py-12 md:py-20 bg-white">
+        <div class="container mx-auto px-6">
+            <div class="flex flex-col md:flex-row items-center gap-12 md:gap-16">
+                <!-- Foto Profil Consultant -->
+                <div class="w-full md:w-1/3 relative px-4 md:px-0">
+                    <div class="absolute inset-0 bg-gray-200 translate-x-2 translate-y-2 md:translate-x-4 md:translate-y-4 rounded-lg"></div>
+                    <img src="https://images.unsplash.com/photo-1556157382-97eda2d62296?q=80&w=2070&auto=format&fit=crop" 
+                         alt="Bams Property Consultant" 
+                         loading="lazy"
+                         class="relative z-10 w-full rounded-lg shadow-xl grayscale hover:grayscale-0 transition duration-500">
+                </div>
+                
+                <!-- Copywriting -->
+                <div class="w-full md:w-2/3">
+                    <h4 class="text-prop-gold font-bold uppercase tracking-widest text-sm mb-2">Kenalan Sama Bams</h4>
+                    <h2 class="text-3xl md:text-4xl font-heading font-bold text-prop-navy mb-6">Ngobrol Dulu Aja, Cocok Baru Lanjut.</h2>
+                    
+                    <p class="text-gray-600 mb-6 leading-relaxed">
+                        Halo, saya <strong>Bams</strong>. Saya paham banget rasanya bingung milih rumah. Banyak pilihan, takut salah pilih lokasi, takut cicilan memberatkan, atau bingung soal legalitas. Itu wajar kok.
+                    </p>
+                    <p class="text-gray-600 mb-8 leading-relaxed">
+                        Tugas saya di sini simpel: <strong>Mendengarkan cerita Anda dulu</strong>. Anda butuh rumah yang dekat sekolah anak? Atau cari yang tenang buat masa pensiun di Malang? Atau cari yang dekat stasiun buat kerja di Jakarta?
+                    </p>
+                    <p class="text-gray-600 mb-8 leading-relaxed italic border-l-4 border-prop-gold pl-4 bg-gray-50 py-2 rounded-r">
+                        "Saya gak akan menjejali Anda dengan brosur kalau itu gak sesuai kebutuhan Anda. Kita diskusi santai layaknya teman, sampai Anda nemu yang 'klik' di hati."
+                    </p>
+                    
+                    <!-- Stats / Value -->
+                    <div class="grid grid-cols-2 md:grid-cols-4 gap-4 md:gap-6 text-center">
+                        <div class="p-4 bg-prop-light border border-gray-100 rounded-lg hover:shadow-md transition">
+                            <i class="fas fa-comments text-2xl text-prop-gold mb-2"></i>
+                            <span class="block text-xs text-gray-500 uppercase font-bold">Enak Diajak Diskusi</span>
+                        </div>
+                        <div class="p-4 bg-prop-light border border-gray-100 rounded-lg hover:shadow-md transition">
+                            <i class="fas fa-file-contract text-2xl text-prop-gold mb-2"></i>
+                            <span class="block text-xs text-gray-500 uppercase font-bold">Bantu Cek Legalitas</span>
+                        </div>
+                        <div class="p-4 bg-prop-light border border-gray-100 rounded-lg hover:shadow-md transition">
+                            <i class="fas fa-map-marked-alt text-2xl text-prop-gold mb-2"></i>
+                            <span class="block text-xs text-gray-500 uppercase font-bold">Paham Lokasi</span>
+                        </div>
+                        <div class="p-4 bg-prop-light border border-gray-100 rounded-lg hover:shadow-md transition">
+                            <i class="fas fa-hand-holding-usd text-2xl text-prop-gold mb-2"></i>
+                            <span class="block text-xs text-gray-500 uppercase font-bold">Solusi Budget</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Curated Projects -->
+    <section id="projects" class="py-12 md:py-20 bg-prop-light">
+        <div class="container mx-auto px-6">
+            <div class="text-center mb-12 md:mb-16 max-w-2xl mx-auto">
+                <h4 class="text-prop-navy font-bold uppercase tracking-widest text-sm mb-2">Area Project</h4>
+                <h2 class="text-3xl md:text-4xl font-heading font-bold text-prop-navy mb-4">Pilihan Lokasi</h2>
+                <p class="text-gray-500">Klik lokasi di bawah untuk melihat pilihan project menarik.</p>
+            </div>
+
+            <!-- Region Grid -->
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+                
+                <!-- Card 1: Jabodetabek -->
+                <a href="https://wa.me/6281939892449?text=Halo%20Mas%20Bams%2C%20tolong%20bisikin%20project%20Hidden%20Gem%20di%20Jabodetabek%20dong.%20Saya%20lagi%20cari%20referensi." target="_blank" class="block group relative overflow-hidden rounded-xl h-80 md:h-96 card-hover cursor-pointer shadow-lg">
+                    <img src="https://images.unsplash.com/photo-1580587771525-78b9dba3b91d?q=80&w=1974&auto=format&fit=crop" 
+                         loading="lazy"
+                         alt="Jabodetabek Property" 
+                         class="w-full h-full object-cover transition duration-700 group-hover:scale-110">
+                    <div class="absolute inset-0 bg-gradient-to-t from-prop-navy via-prop-navy/50 to-transparent opacity-90"></div>
+                    
+                    <div class="absolute bottom-0 left-0 w-full p-6 text-white">
+                        <span class="bg-prop-gold text-prop-navy text-xs font-bold px-2 py-1 rounded mb-2 inline-block">HOT AREA</span>
+                        <h3 class="text-2xl font-heading font-bold mb-1">Jabodetabek</h3>
+                        <p class="text-sm text-gray-300 mb-4 line-clamp-2">Cibubur, Depok, Tangsel. Akses mudah buat yang kerja di kota.</p>
+                        <span class="inline-flex items-center text-prop-gold font-bold text-sm hover:underline">
+                            Lihat Detail <i class="fas fa-arrow-right ml-2"></i>
+                        </span>
+                    </div>
+                </a>
+
+                <!-- Card 2: Malang -->
+                <a href="https://wa.me/6281939892449?text=Halo%20Mas%20Bams%2C%20saya%20tertarik%20investasi%20Villa%2FRunian%20di%20Malang.%20Boleh%20kirimkan%20detail%20opsi%20terbaiknya%3F" target="_blank" class="block group relative overflow-hidden rounded-xl h-80 md:h-96 card-hover cursor-pointer shadow-lg">
+                    <img src="https://images.unsplash.com/photo-1600607687939-ce8a6c25118c?q=80&w=2053&auto=format&fit=crop" 
+                         loading="lazy"
+                         alt="Malang Property" 
+                         class="w-full h-full object-cover transition duration-700 group-hover:scale-110">
+                    <div class="absolute inset-0 bg-gradient-to-t from-prop-navy via-prop-navy/50 to-transparent opacity-90"></div>
+                    
+                    <div class="absolute bottom-0 left-0 w-full p-6 text-white">
+                         <span class="bg-blue-500 text-white text-xs font-bold px-2 py-1 rounded mb-2 inline-block">VILLA & HUNIAN</span>
+                        <h3 class="text-2xl font-heading font-bold mb-1">Malang Raya</h3>
+                        <p class="text-sm text-gray-300 mb-4 line-clamp-2">Suasana adem, cocok buat istirahat atau investasi villa.</p>
+                        <span class="inline-flex items-center text-prop-gold font-bold text-sm hover:underline">
+                            Lihat Detail <i class="fas fa-arrow-right ml-2"></i>
+                        </span>
+                    </div>
+                </a>
+
+                <!-- Card 3: Sidoarjo -->
+                <a href="https://wa.me/6281939892449?text=Halo%20Mas%20Bams%2C%20info%20rumah%20di%20Sidoarjo%20yang%20dekat%20Surabaya%20ada%3F%20Tolong%20infonya%20ya." target="_blank" class="block group relative overflow-hidden rounded-xl h-80 md:h-96 card-hover cursor-pointer shadow-lg">
+                    <img src="https://images.unsplash.com/photo-1605276374104-dee2a0ed3cd6?q=80&w=2070&auto=format&fit=crop" 
+                         loading="lazy"
+                         alt="Sidoarjo Property" 
+                         class="w-full h-full object-cover transition duration-700 group-hover:scale-110">
+                    <div class="absolute inset-0 bg-gradient-to-t from-prop-navy via-prop-navy/50 to-transparent opacity-90"></div>
+                    
+                    <div class="absolute bottom-0 left-0 w-full p-6 text-white">
+                        <span class="bg-green-600 text-white text-xs font-bold px-2 py-1 rounded mb-2 inline-block">DEKAT SURABAYA</span>
+                        <h3 class="text-2xl font-heading font-bold mb-1">Sidoarjo</h3>
+                        <p class="text-sm text-gray-300 mb-4 line-clamp-2">Alternatif cerdas buat yang kerja di Surabaya. Harga bersahabat.</p>
+                         <span class="inline-flex items-center text-prop-gold font-bold text-sm hover:underline">
+                            Lihat Detail <i class="fas fa-arrow-right ml-2"></i>
+                        </span>
+                    </div>
+                </a>
+
+                <!-- Card 4: Gresik -->
+                <a href="https://wa.me/6281939892449?text=Halo%20Mas%20Bams%2C%20mau%20tanya%20project%20di%20Gresik%20yang%20potensial%20buat%20investasi%20atau%20huni." target="_blank" class="block group relative overflow-hidden rounded-xl h-80 md:h-96 card-hover cursor-pointer shadow-lg">
+                    <img src="https://images.unsplash.com/photo-1564013799919-ab600027ffc6?q=80&w=2070&auto=format&fit=crop" 
+                         loading="lazy"
+                         alt="Gresik Property" 
+                         class="w-full h-full object-cover transition duration-700 group-hover:scale-110">
+                    <div class="absolute inset-0 bg-gradient-to-t from-prop-navy via-prop-navy/50 to-transparent opacity-90"></div>
+                    
+                    <div class="absolute bottom-0 left-0 w-full p-6 text-white">
+                         <span class="bg-orange-500 text-white text-xs font-bold px-2 py-1 rounded mb-2 inline-block">BERKEMBANG PESAT</span>
+                        <h3 class="text-2xl font-heading font-bold mb-1">Gresik</h3>
+                        <p class="text-sm text-gray-300 mb-4 line-clamp-2">Menganti & GKB. Area yang lagi naik daun banget.</p>
+                         <span class="inline-flex items-center text-prop-gold font-bold text-sm hover:underline">
+                            Lihat Detail <i class="fas fa-arrow-right ml-2"></i>
+                        </span>
+                    </div>
+                </a>
+
+            </div>
+            
+            <div class="text-center mt-12">
+                 <p class="text-gray-500 mb-4 text-sm italic">Mau curhat soal budget dan lokasi? Gak usah sungkan.</p>
+                 <a href="https://wa.me/6281939892449?text=Halo%20Mas%20Bams%2C%20mau%20curhat%20soal%20budget%20dan%20lokasi%20rumah%20nih." target="_blank" class="inline-block px-8 py-3 bg-white border border-prop-navy text-prop-navy font-bold rounded hover:bg-prop-navy hover:text-white transition duration-300 w-full md:w-auto">
+                    <i class="fab fa-whatsapp mr-2"></i> Chat Mas Bams Aja
+                 </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Testimonials -->
+    <section id="testi" class="py-12 md:py-20 bg-white">
+        <div class="container mx-auto px-6">
+            <h2 class="text-3xl md:text-4xl font-heading font-bold text-prop-navy mb-12 text-center">Kata Mereka yang Sudah Punya Rumah</h2>
+            
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                <!-- Testi 1 -->
+                <div class="p-8 bg-prop-light rounded-xl border border-gray-100 relative shadow-sm">
+                    <i class="fas fa-quote-left text-4xl text-prop-gold opacity-20 absolute top-4 left-4"></i>
+                    <p class="text-gray-600 mb-6 relative z-10 italic text-sm md:text-base">"Mas Bams enak diajak diskusi. Gak maksa harus beli yang mahal, tapi disesuaikan sama kemampuan gaji saya. Akhirnya jadi ambil di Sidoarjo."</p>
+                    <div class="flex items-center gap-4">
+                        <div class="w-10 h-10 bg-gray-300 rounded-full flex items-center justify-center font-bold text-white shrink-0">SA</div>
+                        <div>
+                            <h5 class="font-bold text-prop-navy text-sm">Mbak Sarah</h5>
+                            <p class="text-xs text-gray-400">Karyawan Swasta</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Testi 2 -->
+                <div class="p-8 bg-prop-light rounded-xl border border-gray-100 relative shadow-sm">
+                    <i class="fas fa-quote-left text-4xl text-prop-gold opacity-20 absolute top-4 left-4"></i>
+                    <p class="text-gray-600 mb-6 relative z-10 italic text-sm md:text-base">"Awalnya ragu mau ambil villa di Malang, takut legalitasnya ribet. Untung dijelasin detail sama Mas Bams sampai saya paham."</p>
+                    <div class="flex items-center gap-4">
+                        <div class="w-10 h-10 bg-gray-300 rounded-full flex items-center justify-center font-bold text-white shrink-0">BP</div>
+                        <div>
+                            <h5 class="font-bold text-prop-navy text-sm">Pak Budi</h5>
+                            <p class="text-xs text-gray-400">Wiraswasta</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Testi 3 -->
+                <div class="p-8 bg-prop-light rounded-xl border border-gray-100 relative shadow-sm">
+                    <i class="fas fa-quote-left text-4xl text-prop-gold opacity-20 absolute top-4 left-4"></i>
+                    <p class="text-gray-600 mb-6 relative z-10 italic text-sm md:text-base">"Nyari rumah dekat stasiun di Depok susah gampang. Mas Bams kasih opsi yang pas banget sama kriteria saya."</p>
+                    <div class="flex items-center gap-4">
+                        <div class="w-10 h-10 bg-gray-300 rounded-full flex items-center justify-center font-bold text-white shrink-0">AD</div>
+                        <div>
+                            <h5 class="font-bold text-prop-navy text-sm">Mas Aditya</h5>
+                            <p class="text-xs text-gray-400">Commuter Worker</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-prop-navy text-white py-12 md:py-16">
+        <div class="container mx-auto px-6">
+            <div class="flex flex-col md:flex-row justify-between items-center gap-8 mb-12 text-center md:text-left">
+                <div>
+                    <h2 class="text-2xl font-heading font-bold mb-2">Bams Properti</h2>
+                    <p class="text-gray-400 text-sm max-w-sm mx-auto md:mx-0">Teman diskusi Anda untuk mencari hunian nyaman di Jabodetabek dan Jawa Timur.</p>
+                </div>
+                <div class="flex gap-6 justify-center">
+                    <a href="#" class="w-10 h-10 rounded-full bg-white/10 flex items-center justify-center hover:bg-prop-gold transition"><i class="fab fa-instagram"></i></a>
+                    <a href="#" class="w-10 h-10 rounded-full bg-white/10 flex items-center justify-center hover:bg-prop-gold transition"><i class="fab fa-tiktok"></i></a>
+                </div>
+            </div>
+            <div class="border-t border-white/10 pt-8 text-center text-xs text-gray-500">
+                &copy; 2025 Bams Properti.
+            </div>
+        </div>
+    </footer>
+
+    <!-- Floating WhatsApp Button -->
+    <a href="https://wa.me/6281939892449?text=Halo%20Mas%20Bams%2C%20mau%20konsultasi%20properti%20dong" 
+       target="_blank"
+       class="fixed bottom-6 right-6 z-50 group flex items-center justify-center w-14 h-14 bg-[#25D366] rounded-full shadow-2xl hover:bg-[#128C7E] hover:scale-110 transition-all duration-300">
+        <!-- Pulse Effect -->
+        <span class="absolute inline-flex h-full w-full rounded-full bg-[#25D366] opacity-75 animate-ping group-hover:hidden"></span>
+        <i class="fab fa-whatsapp text-3xl text-white relative z-10"></i>
+        <!-- Tooltip -->
+        <span class="absolute right-16 bg-white text-prop-navy text-xs font-bold px-3 py-2 rounded shadow-lg opacity-0 group-hover:opacity-100 transition-opacity duration-300 whitespace-nowrap pointer-events-none border border-gray-100 hidden md:block">
+            Chat Mas Bams
+        </span>
+    </a>
+
+    <!-- Mobile Menu Script -->
+    <script>
+        const mobileMenuBtn = document.getElementById('mobile-menu-btn');
+        const mobileMenu = document.getElementById('mobile-menu');
+        const menuIcon = mobileMenuBtn.querySelector('i');
+        const mobileLinks = document.querySelectorAll('.mobile-link');
+
+        // Toggle Menu
+        mobileMenuBtn.addEventListener('click', () => {
+            mobileMenu.classList.toggle('hidden');
+            mobileMenu.classList.toggle('flex');
+            
+            // Icon Toggle (Hamburger <-> Times)
+            if(mobileMenu.classList.contains('hidden')) {
+                menuIcon.classList.remove('fa-times');
+                menuIcon.classList.add('fa-bars');
+            } else {
+                menuIcon.classList.remove('fa-bars');
+                menuIcon.classList.add('fa-times');
+            }
+        });
+
+        // Close Menu when link is clicked
+        mobileLinks.forEach(link => {
+            link.addEventListener('click', () => {
+                mobileMenu.classList.add('hidden');
+                mobileMenu.classList.remove('flex');
+                menuIcon.classList.remove('fa-times');
+                menuIcon.classList.add('fa-bars');
+            });
+        });
+    </script>
+</body>
+</html>
