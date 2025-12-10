@@ -4,7 +4,26 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Bams Properti | Teman Diskusi Hunian Anda</title>
+
+    <!-- ========================================== -->
+    <!-- SETTINGAN PREVIEW WHATSAPP (OPEN GRAPH)    -->
+    <!-- ========================================== -->
+    <!-- 
+      CATATAN PENTING:
+      Pastikan lo punya folder bernama 'aset' dan file foto bernama 'bams.webp' 
+      yang sudah di-upload ke GitHub.
+    -->
+    <meta property="og:image" content="https://bams-property2.pages.dev/aset/bams.webp">
+    <meta property="og:image:type" content="image/webp">
+    <meta property="og:image:width" content="1200">
+    <meta property="og:image:height" content="630">
     
+    <!-- Judul & Deskripsi yang muncul di WA -->
+    <meta property="og:title" content="Bams Properti | Teman Diskusi Hunian">
+    <meta property="og:description" content="Konsultasi properti santai area Jabodetabek & Jatim. Cari hunian yang pas di hati dan budget.">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://bams-property2.pages.dev/"> <!-- Domain Cloudflare Pages lo -->
+
     <!-- Tailwind CSS -->
     <script src="https://cdn.tailwindcss.com"></script>
     
@@ -139,13 +158,21 @@
     <section id="about" class="py-12 md:py-20 bg-white">
         <div class="container mx-auto px-6">
             <div class="flex flex-col md:flex-row items-center gap-12 md:gap-16">
-                <!-- Foto Profil Consultant -->
-                <div class="w-full md:w-1/3 relative px-4 md:px-0">
-                    <div class="absolute inset-0 bg-gray-200 translate-x-2 translate-y-2 md:translate-x-4 md:translate-y-4 rounded-lg"></div>
-                    <img src="https://images.unsplash.com/photo-1556157382-97eda2d62296?q=80&w=2070&auto=format&fit=crop" 
-                         alt="Bams Property Consultant" 
-                         loading="lazy"
-                         class="relative z-10 w-full rounded-lg shadow-xl grayscale hover:grayscale-0 transition duration-500">
+                
+                <!-- Foto Profil Consultant (UPDATED: INSTAGRAM STYLE & LOCAL FILE) -->
+                <div class="w-full md:w-1/3 flex justify-center md:justify-end">
+                    <!-- Wrapper agar gambar tetap kotak/lingkaran sempurna -->
+                    <div class="relative w-64 h-64 md:w-80 md:h-80">
+                        <!-- Elemen Dekorasi Belakang (Lingkaran) -->
+                        <div class="absolute inset-0 bg-gradient-to-tr from-gray-200 to-gray-300 translate-x-3 translate-y-3 rounded-full"></div>
+                        
+                        <!-- Foto Utama (Menggunakan file lokal) -->
+                        <img src="aset/bams.webp" 
+                             alt="Bams Property Consultant" 
+                             loading="lazy"
+                              class="relative z-10 w-full h-full object-cover rounded-full shadow-2xl border-4 border-white aspect-square">
+                    </div>
+                    </div>
                 </div>
                 
                 <!-- Copywriting -->
@@ -201,7 +228,7 @@
                 
                 <!-- Card 1: Jabodetabek -->
                 <a href="https://wa.me/6281939892449?text=Halo%20Mas%20Bams%2C%20tolong%20bisikin%20project%20Hidden%20Gem%20di%20Jabodetabek%20dong.%20Saya%20lagi%20cari%20referensi." target="_blank" class="block group relative overflow-hidden rounded-xl h-80 md:h-96 card-hover cursor-pointer shadow-lg">
-                    <img src="https://images.unsplash.com/photo-1580587771525-78b9dba3b91d?q=80&w=1974&auto=format&fit=crop" 
+                    <img src="aset/tangerang.webp" 
                          loading="lazy"
                          alt="Jabodetabek Property" 
                          class="w-full h-full object-cover transition duration-700 group-hover:scale-110">
@@ -219,7 +246,7 @@
 
                 <!-- Card 2: Malang -->
                 <a href="https://wa.me/6281939892449?text=Halo%20Mas%20Bams%2C%20saya%20tertarik%20investasi%20Villa%2FRunian%20di%20Malang.%20Boleh%20kirimkan%20detail%20opsi%20terbaiknya%3F" target="_blank" class="block group relative overflow-hidden rounded-xl h-80 md:h-96 card-hover cursor-pointer shadow-lg">
-                    <img src="https://images.unsplash.com/photo-1600607687939-ce8a6c25118c?q=80&w=2053&auto=format&fit=crop" 
+                    <img src="aset/malang.webp" 
                          loading="lazy"
                          alt="Malang Property" 
                          class="w-full h-full object-cover transition duration-700 group-hover:scale-110">
@@ -237,7 +264,7 @@
 
                 <!-- Card 3: Sidoarjo -->
                 <a href="https://wa.me/6281939892449?text=Halo%20Mas%20Bams%2C%20info%20rumah%20di%20Sidoarjo%20yang%20dekat%20Surabaya%20ada%3F%20Tolong%20infonya%20ya." target="_blank" class="block group relative overflow-hidden rounded-xl h-80 md:h-96 card-hover cursor-pointer shadow-lg">
-                    <img src="https://images.unsplash.com/photo-1605276374104-dee2a0ed3cd6?q=80&w=2070&auto=format&fit=crop" 
+                    <img src="aset/sidoarjo.webp" 
                          loading="lazy"
                          alt="Sidoarjo Property" 
                          class="w-full h-full object-cover transition duration-700 group-hover:scale-110">
@@ -255,7 +282,7 @@
 
                 <!-- Card 4: Gresik -->
                 <a href="https://wa.me/6281939892449?text=Halo%20Mas%20Bams%2C%20mau%20tanya%20project%20di%20Gresik%20yang%20potensial%20buat%20investasi%20atau%20huni." target="_blank" class="block group relative overflow-hidden rounded-xl h-80 md:h-96 card-hover cursor-pointer shadow-lg">
-                    <img src="https://images.unsplash.com/photo-1564013799919-ab600027ffc6?q=80&w=2070&auto=format&fit=crop" 
+                    <img src="aset/gresik.webp" 
                          loading="lazy"
                          alt="Gresik Property" 
                          class="w-full h-full object-cover transition duration-700 group-hover:scale-110">
@@ -339,7 +366,7 @@
                     <p class="text-gray-400 text-sm max-w-sm mx-auto md:mx-0">Teman diskusi Anda untuk mencari hunian nyaman di Jabodetabek dan Jawa Timur.</p>
                 </div>
                 <div class="flex gap-6 justify-center">
-                    <a href="#" class="w-10 h-10 rounded-full bg-white/10 flex items-center justify-center hover:bg-prop-gold transition"><i class="fab fa-instagram"></i></a>
+                    <a href="https://www.instagram.com/bem.rumahimajinasi" class="w-10 h-10 rounded-full bg-white/10 flex items-center justify-center hover:bg-prop-gold transition"><i class="fab fa-instagram"></i></a>
                     <a href="#" class="w-10 h-10 rounded-full bg-white/10 flex items-center justify-center hover:bg-prop-gold transition"><i class="fab fa-tiktok"></i></a>
                 </div>
             </div>
